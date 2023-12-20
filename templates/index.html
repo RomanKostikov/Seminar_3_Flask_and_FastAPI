@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {% for student in students %}
+        <div class="container m-3">
+            <hr>
+            {{ student.name }} {{ student.surname }}
+            <br>
+            {{ student.age }}, {{ student.gender }}
+            <br>
+            {{ student.group }}, {{ student.faculty }}
+        </div>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Задание 3
+{% endblock title %}
+
+{% block content %}
+    {% for student in students %}
+        <div class="container my-3 py-3 px-5 bg-info" style="
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    ">
+            <p>Студент: {{ student.name }} {{ student.last_name }}</p>
+            <p>Группа: {{ student.group }}</p>
+            <p>Email: {{ student.email }}</p>
+
+            <table class="table table-sm table-info bg-info table-bordered">
+                <th scope="col">Предмет</th>
+                <th scope="col">Оценка</th>
+                {% for grade in student.grades|sort(attribute='discipline_name') %}
+                    <tr>
+                        <td>{{ grade.discipline_name }}</td>
+                        <td>{{ grade.grade }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    {% endfor %}
+{% endblock content %}

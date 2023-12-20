@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    {% for book in books %}
+        <div class="container m-3">
+            <hr>
+            {{ book.name }}
+            <br>
+            {{ book.release_year }}, {{ book.copies }}
+            <br>
+            {{ book.author }}
+        </div>
+    {% endfor %}
+{% endblock content %}
